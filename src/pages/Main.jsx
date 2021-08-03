@@ -1,6 +1,5 @@
 import {Container, makeStyles} from "@material-ui/core";
-import {useEffect, useState} from "react";
-import {getAllCharacters} from '../config'
+import {getAllCharacters} from '../api'
 import {CharacterList} from "../components/CharacterList";
 import {EpisodeList} from "../components/EpisodeList";
 import {LocationList} from "../components/LocationList";

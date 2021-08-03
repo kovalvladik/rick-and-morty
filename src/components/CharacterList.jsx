@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {getAllCharacters} from "../config";
+import {getAllCharacters} from "../api";
 import {CharacterItem} from "./CharacterItem";
 import {Grid} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
