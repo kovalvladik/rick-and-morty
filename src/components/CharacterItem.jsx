@@ -15,6 +15,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import {Button} from "@material-ui/core";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -71,9 +74,9 @@ function CharacterItem (props) {
                         {type}
                     </Typography>
                 </CardContent>
-                <CardActions disableSpacing>
-            
-                </CardActions>
+                <Button component={Link} to={`/allCharacter/${id}`}>
+                    <AccountCircleIcon/>
+                </Button>
             </Card>
         );
     }
