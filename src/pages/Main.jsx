@@ -1,6 +1,9 @@
 import {Container, makeStyles} from "@material-ui/core";
 import {useEffect, useState} from "react";
 import {getAllCharacters} from '../config'
+import {CharacterList} from "../components/CharacterList";
+import {EpisodeList} from "../components/EpisodeList";
+import {LocationList} from "../components/LocationList";
 
 const useStyles = makeStyles({
     root:{
@@ -10,18 +13,15 @@ const useStyles = makeStyles({
 
 function Main () {
 
-    const [character, setCharacter] = useState([])
 
     const classes = useStyles()
 
-    useEffect(()=>{
-        getAllCharacters().then(data =>{
-            setCharacter(data.results)
-        })
-    },[character])
+
 
     return<Container className={classes.root}>
-        {character.map(character => <div>{character.name}</div>)}
+      <CharacterList/>
+        <EpisodeList/>
+        <LocationList/>
     </Container>
 }
 export {Main}

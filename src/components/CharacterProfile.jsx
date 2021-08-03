@@ -1,0 +1,6 @@
+
+
+function CharacterProfile () {
+
+}
+export {CharacterProfile}
