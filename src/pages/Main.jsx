@@ -1,10 +1,7 @@
 import {Button, Card, CardHeader, Grid, makeStyles} from "@material-ui/core";
 import CardMedia from "@material-ui/core/CardMedia";
 import {Link} from "react-router-dom";
-import {CharacterProfile} from "../components/CharacterProfile";
-import {logo1} from '../images/logo1.png'
-import {logo2} from '../images/logo2.jpeg'
-import {logo3} from '../images/logo3.jpeg'
+
 
 
 const useStyles = makeStyles({
