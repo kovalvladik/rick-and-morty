@@ -1,9 +1,7 @@
 import {useEffect, useState} from "react";
-import {getAllEpisode, getAllLocation} from "../api";
-import {CharacterItem} from "./CharacterItem";
+import { getAllLocation} from "../api";
 import {Grid} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-import {EpisodeItem} from "./EpisodeItem";
 import {LocationItem} from "./LocationItem";
 
 const useStyle = makeStyles({
