@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 // import {Link} from "react-router-dom";
 import { IconButton} from "@material-ui/core";
+import {CharacterProfile} from "./CharacterProfile";
 
 
 
@@ -41,6 +42,7 @@ export default function Header() {
                     <Typography align='center' variant="h6" className={classes.title}  >
                         React Food SPA
                     </Typography>
+                    <CharacterProfile/>
                     <Button   color="inherit" >About</Button>
                 </Toolbar>
             </AppBar>

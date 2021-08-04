@@ -7,6 +7,9 @@ import {AllEpisode} from './pages/AllEpisode'
 import {AllLocation} from './pages/AllLocation'
 import {About} from './pages/About'
 import {NotFound} from './pages/NotFound'
+import {Personality} from "./pages/Personality";
+import {Location} from "./pages/Location";
+import {SingleEpisode} from "./pages/SingleEpisode";
 
 
 function App() {
@@ -21,6 +24,9 @@ function App() {
             <Route path='/allCharacter' component={AllCharacters} />
             <Route path='/allEpisode' component={AllEpisode} />
             <Route path='/allLocation' component={AllLocation} />
+            <Route path='/Character/:id' component={Personality} />
+            <Route path='/Episode/:id' component={SingleEpisode} />
+            <Route path='/Location/:id' component={Location} />
             <Route  component={NotFound} />
           </Switch>
         </main>

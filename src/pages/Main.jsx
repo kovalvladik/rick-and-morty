@@ -1,8 +1,8 @@
-import {Container, makeStyles} from "@material-ui/core";
-import {getAllCharacters} from '../api'
-import {CharacterList} from "../components/CharacterList";
-import {EpisodeList} from "../components/EpisodeList";
-import {LocationList} from "../components/LocationList";
+import {Button, Card, CardHeader, Grid, makeStyles} from "@material-ui/core";
+import CardMedia from "@material-ui/core/CardMedia";
+import {Link} from "react-router-dom";
+import {CharacterProfile} from "../components/CharacterProfile";
+
 
 const useStyles = makeStyles({
     root:{
@@ -17,10 +17,37 @@ function Main () {
 
 
 
-    return<Container className={classes.root}>
-      <CharacterList/>
-        <EpisodeList/>
-        <LocationList/>
-    </Container>
+    return< Grid container className={classes.root} spacing={3} >
+      <Grid item>
+        <Card>
+            <CardHeader title='Characters'/>
+            <CardMedia >
+                <Button component={Link} to={`/allCharacter`}>
+                    push
+                </Button>
+            </CardMedia>
+        </Card>
+      </Grid>
+      <Grid item>
+          <Card>
+              <CardHeader title='Episode'/>
+              <CardMedia >
+                <Button component={Link} to={`/allEpisode`}>
+                    push
+                </Button>
+              </CardMedia>
+          </Card>
+      </Grid>
+      <Grid item>
+          <Card>
+              <CardHeader title='Location'/>
+              <CardMedia >
+                  <Button component={Link} to={`/allLocation`}>
+                      push
+                  </Button>
+              </CardMedia>
+          </Card>
+      </Grid>
+    </Grid>
 }
 export {Main}

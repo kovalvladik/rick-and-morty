@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -49,12 +48,9 @@ const useStyles = makeStyles((theme) => ({
 function CharacterItem (props) {
 
     const {id,name,status,species,type,gender,image} = props
-    const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
 
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
+    const classes = useStyles();
+
 
 
 
@@ -74,7 +70,7 @@ function CharacterItem (props) {
                         {type}
                     </Typography>
                 </CardContent>
-                <Button component={Link} to={`/allCharacter/${id}`}>
+                <Button component={Link} to={`/Character/${id}`}>
                     <AccountCircleIcon/>
                 </Button>
             </Card>
