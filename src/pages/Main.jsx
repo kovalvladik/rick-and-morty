@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 
 const useStyles = makeStyles({
     root:{
-        minHeight: 'calc(100vh - 64px - 135px)',
+        minHeight: 'calc(100vh - 64px - 116px)',
 
     },
     item:{

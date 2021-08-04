@@ -1,15 +1,22 @@
-
-
+import instance from "./axois";
 import {API_URL} from "./config";
 
+
+
 const getAllCharacters = async () => {
-    const response = await fetch(API_URL + '/character?page=13')
-    return await response.json()
+    const response = await instance.get('/character?page=13')
+    console.log(response)
+    return response;
 }
+
 const getSingleCharacter = async (id) => {
-    const response = await fetch(API_URL + `/character/${id}`)
-    return await response.json()
+    const response = await instance.get(`/character/${id}`)
+    console.log(response)
+    return response;
 }
+
+
+
 const getAllLocation = async () => {
     const response = await fetch(API_URL + `/location`)
     return await response.json()
@@ -32,5 +39,6 @@ const getSingleEpisode = async (id) => {
              getAllLocation,
         getSingleLocation,
         getAllEpisode,
-        getSingleEpisode
+        getSingleEpisode,
+        getAllCharactersZ
 }
