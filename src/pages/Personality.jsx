@@ -1,9 +1,23 @@
 import {CharacterProfile} from "../components/CharacterProfile";
+import { makeStyles} from "@material-ui/core";
+
+
+
+
+const useStyles = makeStyles({
+    root:{
+        minHeight: 'calc(100vh - 64px - 116px)',
+
+    },
+
+})
+
 
 function Personality(){
- return<div>
+    const classes = useStyles()
+ return<main className={classes.root}>
 
      hey:<CharacterProfile/>
- </div>
+ </main>
 }
 export {Personality}
