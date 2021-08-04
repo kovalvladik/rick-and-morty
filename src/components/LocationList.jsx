@@ -22,7 +22,7 @@ function LocationList () {
 
     useEffect(()=>{
         getAllLocation().then(data =>{
-            setLocation(data.results)
+            setLocation(data.data.results)
         })
     },[])
 

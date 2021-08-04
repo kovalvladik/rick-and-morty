@@ -22,7 +22,7 @@ function EpisodeList () {
 
     useEffect(()=>{
         getAllEpisode().then(data =>{
-            setEpisode(data.results)
+            setEpisode(data.data.results)
         })
     },[])
 

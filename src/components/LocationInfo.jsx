@@ -12,7 +12,7 @@ function LocationInfo () {
 
     useEffect(()=>{
         getSingleLocation(id).then(data =>{
-            setLocation(data)
+            setLocation(data.data)
             console.log('location')
         })
     },[id])
