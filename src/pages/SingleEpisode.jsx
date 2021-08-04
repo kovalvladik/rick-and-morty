@@ -1,8 +1,7 @@
 
 import {EpisodeInfo} from "../components/EpisodeInfo";
-import {Button, Card, CardHeader, Grid, makeStyles} from "@material-ui/core";
-import CardMedia from "@material-ui/core/CardMedia";
-import {Link} from "react-router-dom";
+import { makeStyles} from "@material-ui/core";
+
 
 
 
