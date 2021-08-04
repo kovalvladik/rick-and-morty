@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { IconButton} from "@material-ui/core";
 import {CharacterProfile} from "./CharacterProfile";
+import {Link} from "react-router-dom";
+import HomeIcon from '@material-ui/icons/Home';
 
 
 
@@ -36,13 +38,14 @@ export default function Header() {
             <AppBar position="static" className={classes.root}  >
 
                 <Toolbar>
-                    <IconButton color='inherit'   >
+                    <IconButton color='inherit'  component={Link} to={'/'}  >
+                        <HomeIcon />
                     </IconButton>
                     <Typography align='center' variant="h6" className={classes.title}  >
-                        React Food SPA
+                        Rick and Morty SPA
                     </Typography>
                     <CharacterProfile/>
-                    <Button   color="inherit" >About</Button>
+                    <Button   color="inherit"  component={Link} to={'/about'}>About</Button>
                 </Toolbar>
             </AppBar>
         </div>
