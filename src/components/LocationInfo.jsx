@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import { getSingleLocation} from "../api";
 import {List} from "@material-ui/core";
+import {CharacterProfile} from "./CharacterProfile";
 
 function LocationInfo () {
     const [location,setLocation] = useState([])
@@ -13,6 +14,7 @@ function LocationInfo () {
     useEffect(()=>{
         getSingleLocation(id).then(data =>{
             setLocation(data)
+            console.log('location')
         })
     },[id])
     return<>
@@ -20,7 +22,6 @@ function LocationInfo () {
             {name}
             {type}
             {dimension}
-            {/*{JSON.stringify(residents)}*/}
 
         </List>
     </>

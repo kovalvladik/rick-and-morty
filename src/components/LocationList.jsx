@@ -26,7 +26,7 @@ function LocationList () {
         getAllLocation().then(data =>{
             setLocation(data.results)
         })
-    },[location])
+    },[])
 
     return<Grid container spacing={3}  className={classes.root}>
         {location.map((location) =>

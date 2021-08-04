@@ -13,6 +13,7 @@ function EpisodeInfo () {
     useEffect(()=>{
         getSingleEpisode(id).then(data =>{
             setEpisodes(data)
+            console.log('episode')
         })
     },[id])
     return<>

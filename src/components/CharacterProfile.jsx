@@ -14,8 +14,9 @@ function CharacterProfile () {
     useEffect(()=>{
         getSingleCharacter(id).then(data =>{
             setCharacter(data)
+            console.log('character')
         })
-    },[id])
+    },[])
         return<>
             <List >
                 {name}

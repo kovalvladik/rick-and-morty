@@ -24,7 +24,7 @@ function CharacterList () {
         getAllCharacters().then(data =>{
             setCharacter(data.results)
         })
-    },[character])
+    },[])
 
     return<Grid container spacing={3}  className={classes.root}>
         {character.map((character) => 

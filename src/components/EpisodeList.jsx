@@ -25,7 +25,7 @@ function EpisodeList () {
         getAllEpisode().then(data =>{
             setEpisode(data.results)
         })
-    },[episode])
+    },[])
 
     return<Grid container spacing={3}  className={classes.root}>
         {episode.map((episode) =>
