@@ -46,7 +46,7 @@ function Main () {
               <CardHeader title='Episode'/>
               <CardMedia >
                   <img style={{maxHeight:'400px'}} src='https://www.kindpng.com/picc/m/376-3760724_rick-and-morty-png-download-image-rick-and.png'/>
-                <Button component={Link} to={`/allEpisode`}>
+                <Button component={Link} to={`/episode`}>
                     push
                 </Button>
               </CardMedia>
@@ -57,7 +57,7 @@ function Main () {
               <CardHeader title='Location' />
               <CardMedia  >
                   <img style={{maxHeight:'400px'}} src='https://www.denofgeek.com/wp-content/uploads/2021/03/Rick-and-Morty-Season-5-Trailer.jpg?resize=768%2C432'/>
-                  <Button component={Link} to={`/allLocation`}>
+                  <Button component={Link} to={`/location`}>
                       push
                   </Button>
               </CardMedia>

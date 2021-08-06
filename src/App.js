@@ -22,8 +22,8 @@ function App() {
             <Route exact path='/' component={Main}/>
             <Route path='/about' component={About} />
             <Route exact path='/character' component={AllCharacters} />
-            <Route path='/allEpisode' component={AllEpisode} />
-            <Route path='/allLocation' component={AllLocation} />
+            <Route exact path='/episode' component={AllEpisode} />
+            <Route exact path='/location' component={AllLocation} />
             <Route  exact path='/character/:id' component={Personality} />
             <Route path='/Episode/:id' component={SingleEpisode} />
             <Route path='/Location/:id' component={Location} />
