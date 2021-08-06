@@ -64,7 +64,7 @@ function CharacterItem (props) {
                         {type}
                     </Typography>
                 </CardContent>
-                <Button component={Link} to={`/Character/${id}`}>
+                <Button component={Link} to={`/character/${id}`}>
                     <AccountCircleIcon/>
                 </Button>
             </Card>

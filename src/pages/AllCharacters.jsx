@@ -1,5 +1,5 @@
 import {CharacterList} from "../components/CharacterList";
-import PaginationOutlined from "../components/Pagination";
+import PaginationOutlined from "../components/PaginationLink";
 import { makeStyles} from "@material-ui/core";
 
 
@@ -17,7 +17,6 @@ function AllCharacters () {
     const classes = useStyles()
  return<main className={classes.root}>
      <CharacterList/>
-     <PaginationOutlined/>
  </main>
 
 }

@@ -1,8 +1,11 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {getAllEpisode} from "../api";
 import {Grid} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import {EpisodeItem} from "./EpisodeItem";
+import PaginationLink from "./PaginationLink";
+import {useHistory} from "react-router-dom";
+import {useLocation} from "react-router";
 
 const useStyle = makeStyles({
     root: {
@@ -16,15 +19,27 @@ const useStyle = makeStyles({
 function EpisodeList () {
 
     const classes = useStyle()
+    const {push} = useHistory()
 
+    const  {pathname,search} = useLocation()
 
     const [episode, setEpisode] = useState([])
+    const [info, setInfo] = useState({})
 
     useEffect(()=>{
-        getAllEpisode().then(data =>{
-            setEpisode(data.data.results)
-        })
-    },[])
+        if( search.split('=')[1]!== 1){
+            getAllEpisode(search.split('=')[1]).then(data =>{
+                setEpisode(data.data.results)
+                setInfo(data.data.info)
+            })
+        } else {
+            getAllEpisode().then(data =>{
+                setEpisode(data.data.results)
+                setInfo(data.data.info)
+            })
+        }
+
+    },[search])
 
     return<Grid container spacing={3}  className={classes.root}>
         {episode.map((episode) =>
@@ -32,6 +47,11 @@ function EpisodeList () {
                     <EpisodeItem  key={episode.id} {...episode}/>
                 </Grid>
             ))}
+        <Grid container>
+            <Grid item>
+                <PaginationLink info={info} />
+            </Grid>
+        </Grid>
     </Grid>
 }
 export {EpisodeList}

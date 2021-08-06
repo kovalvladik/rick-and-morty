@@ -16,7 +16,7 @@ function CharacterProfile () {
             setCharacter(data.data)
             console.log('character')
         })
-    },[])
+    },[id])
         return<>
             <List >
                 {name}

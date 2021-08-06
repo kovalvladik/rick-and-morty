@@ -35,7 +35,7 @@ function Main () {
             <CardHeader title='Characters'/>
             <CardMedia  >
                 <img style={{maxHeight:'400px', minHeight:'400px'}} src='https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/05/New-Rick-and-Morty-trailer.jpg?q=50&fit=contain&w=750&h=375&dpr=1.5'/>
-                <Button component={Link} to={`/allCharacter`}>
+                <Button component={Link} to={`/character`}>
                     push
                 </Button>
             </CardMedia>

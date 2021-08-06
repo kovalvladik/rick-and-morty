@@ -1,9 +1,28 @@
-import instance from "./axois";
+
+import {instance} from './axois'
 
 
 
 const getAllCharacters = async () => {
-    const response = await instance.get('/character?page=13')
+    const response = await instance.get('/character?page')
+    return response;
+}
+
+const getAllCharactersz = async (id) => {
+    if(id==undefined){
+        const response = await instance.get(`/character?page=}`)
+        return response;
+    } else {
+        const response = await instance.get(`/character?page=${id}`)
+        console.log(`/character?page=${id}`)
+
+        return response;
+    }
+
+
+}
+const getLastPage = async (id) => {
+    const response = await instance.get(`/character?page${id}`)
     return response;
 }
 
@@ -22,9 +41,15 @@ const getSingleLocation = async (id) => {
     return response;
 }
 
-const getAllEpisode = async () => {
-    const response = await instance.get( `/episode`)
-    return response;
+const getAllEpisode = async (id) => {
+    if(id==undefined){
+        const response = await instance.get( `/episode?page=`)
+        return response;
+    } else {
+        const response = await instance.get( `/episode?page=${id}`)
+        return response;
+    }
+
 }
 
 const getSingleEpisode = async (id) => {
@@ -42,5 +67,9 @@ const getSingleEpisode = async (id) => {
         getSingleLocation,
         getAllEpisode,
         getSingleEpisode,
+        getLastPage,
+        getAllCharactersz
+
+
 
 }
