@@ -30,9 +30,15 @@ const getSingleCharacter = async (id) => {
     const response = await instance.get(`/character/${id}`)
     return response;
 }
-const getAllLocation = async () => {
-    const response = await instance.get(`/location`)
-    return response;
+const getAllLocation = async (id) => {
+    if(id==undefined){
+        const response = await instance.get(`/location`)
+        return response;
+    }else {
+        const response = await instance.get(`/location?page=${id}`)
+        return response;
+    }
+
 
 }
 
