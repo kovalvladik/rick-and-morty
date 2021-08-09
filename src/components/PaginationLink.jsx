@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Pagination from '@material-ui/lab/Pagination';
 import {useLocation} from "react-router";
 import {useHistory} from "react-router-dom";
@@ -9,7 +8,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
         '& > * + *': {
             marginTop: theme.spacing(2),
+
         },
+
     },
 }));
 

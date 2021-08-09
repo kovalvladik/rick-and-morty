@@ -13,6 +13,10 @@ const useStyle = makeStyles({
         padding:'3rem'
         // marginLeft:'3px'
     },
+    pagination:{
+        paddingLeft:'35%',
+        paddingTop:'2rem'
+    },
 })
 
 
@@ -49,9 +53,9 @@ function LocationList () {
                     <LocationItem  key={location.id} {...location}/>
                 </Grid>
             ))}
-        <Grid container>
+        <Grid container className={classes.pagination}>
             <Grid item>
-                <PaginationLink info={info} />
+                < PaginationLink info={info} />
             </Grid>
         </Grid>
     </Grid>

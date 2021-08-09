@@ -2,15 +2,15 @@
 import {instance} from './axois'
 
 
-
-const getAllCharacters = async () => {
-    const response = await instance.get('/character?page')
-    return response;
-}
+//
+// const getAllCharacters = async () => {
+//     const response = await instance.get('/character?page')
+//     return response;
+// }
 
 const getAllCharactersz = async (id) => {
-    if(id==undefined){
-        const response = await instance.get(`/character?page=}`)
+    if(id===undefined){
+        const response = await instance.get(`/character?page=1`)
         return response;
     } else {
         const response = await instance.get(`/character?page=${id}`)
@@ -67,7 +67,7 @@ const getSingleEpisode = async (id) => {
 
 
 
-    export {getAllCharacters,
+    export {
             getSingleCharacter,
              getAllLocation,
         getSingleLocation,

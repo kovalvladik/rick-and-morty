@@ -1,5 +1,4 @@
 import {CharacterList} from "../components/CharacterList";
-import PaginationOutlined from "../components/PaginationLink";
 import { makeStyles} from "@material-ui/core";
 
 
