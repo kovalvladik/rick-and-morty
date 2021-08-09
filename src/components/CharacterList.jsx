@@ -56,7 +56,7 @@ function CharacterList () {
 
 
 
-    return(character.length == 0 ? <Grid container spacing={3}  className={classes.root}>
+    return(character.length !== 0 ? <Grid container spacing={3}  className={classes.root}>
         <Search character={character}/>
         {character.map((character) => 
         (<Grid item xs={12} sm={6} md={4} lg={3} >

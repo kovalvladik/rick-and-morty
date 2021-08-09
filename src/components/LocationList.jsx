@@ -6,6 +6,8 @@ import {LocationItem} from "./LocationItem";
 import PaginationLink from "./PaginationLink";
 import {useHistory} from "react-router-dom";
 import {useLocation} from "react-router";
+import Preloader from "./Preloader";
+
 
 const useStyle = makeStyles({
     root: {
@@ -47,7 +49,7 @@ function LocationList () {
 
     },[search])
 
-    return<Grid container spacing={3}  className={classes.root}>
+    return(location.length !==0 ?  <Grid container spacing={3}  className={classes.root}>
         {location.map((location) =>
             (<Grid item xs={12} sm={6} md={4} lg={3}>
                     <LocationItem  key={location.id} {...location}/>
@@ -58,6 +60,6 @@ function LocationList () {
                 < PaginationLink info={info} />
             </Grid>
         </Grid>
-    </Grid>
+    </Grid> : <Preloader/>)
 }
 export {LocationList}

@@ -6,6 +6,8 @@ import {EpisodeItem} from "./EpisodeItem";
 import PaginationLink from "./PaginationLink";
 import {useHistory} from "react-router-dom";
 import {useLocation} from "react-router";
+import Preloader from "./Preloader";
+
 
 const useStyle = makeStyles({
     root: {
@@ -41,7 +43,7 @@ function EpisodeList () {
 
     },[search])
 
-    return<Grid container spacing={3}  className={classes.root}>
+    return(episode.length !== 0 ? <Grid container spacing={3}  className={classes.root}>
         {episode.map((episode) =>
             (<Grid item xs={12} sm={6} md={4} lg={3}>
                     <EpisodeItem  key={episode.id} {...episode}/>
@@ -52,6 +54,6 @@ function EpisodeList () {
                 <PaginationLink info={info} />
             </Grid>
         </Grid>
-    </Grid>
+    </Grid> : <Preloader/>)
 }
 export {EpisodeList}
