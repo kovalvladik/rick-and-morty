@@ -12,6 +12,7 @@ import Preloader from "../Preloader";
 import SearchParams from "./SearchParams";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
+import {instance} from "../../axois";
 
 
 const useStyles = makeStyles({
@@ -43,43 +44,42 @@ function CharacterList () {
 
     const [currentPage, setCurrentPage] = useState(1)
 
-
-    // useEffect( ()=>{
-    //     if(search.split('=')[1]!== 1){
-    //         getAllCharactersz(search.split('=')[1]).then(data =>{
-    //             setCharacter(data.data.results)
-    //             setInfo(data.data.info)
-    //             console.log(data.data.results)
-    //             console.log(data.data.info)
-    //
-    //         })
-    //     }else {
-    //         getAllCharactersz().then(data =>{
-    //             setCharacter(data.data.results)
-    //             setInfo(data.data.info)
-    //             setFilteredChar(params ? )
-    //             setCurrentPage(1)
-    //             console.log(data.data.results)
-    //             console.log(data.data.info)
-    //         })
-    //     }
-    //
-    // },[search])
-
-
-    useEffect(()=>{
-        getAllCharactersz(search.split('=')[1]).then(data =>{
-            setCharacter(data.data.results)
-            setInfo(data.data.info)
-    }, [search])
-
     const [params, setParams ]= useState('')
 
+    const [name, setName ]= useState('')
 
-    const handleSearch = (e) => {
-        // setParams(e.target.value)
-        console.log( params)
-        // setParams( e.target.value)
+    const characters = (id) => {
+
+        instance.get(`/character`,{
+            params: {
+                page: id,
+                name: params,
+            }
+        }).then(data =>{
+            setCharacter(data.data.results)
+            setInfo(data.data.info)
+        })
+    }
+
+
+
+
+    useEffect(async ()=>{
+
+        await characters(search.split('=')[1])
+
+    }, [search,name])
+
+
+
+    const handleSearch = () => {
+        setName(params)
+        console.log( name)
+        push({
+            pathname,
+            search: `?name=${params}`
+        })
+
     }
 
 
@@ -96,6 +96,7 @@ function CharacterList () {
                         <div>
                             <SearchIcon />
                         </div>
+                    <div>
                         <InputBase
                             placeholder="Search…"
 
@@ -104,6 +105,8 @@ function CharacterList () {
                             value={params}
                         />
                         <Button  onClick={handleSearch}> press</Button>
+                    </div>
+
 
                 </Grid>
 
