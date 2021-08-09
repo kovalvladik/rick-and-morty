@@ -1,5 +1,5 @@
 
-import {EpisodeInfo} from "../components/EpisodeInfo";
+import {EpisodeInfo} from "../../components/Episode/EpisodeInfo";
 import { makeStyles} from "@material-ui/core";
 
 

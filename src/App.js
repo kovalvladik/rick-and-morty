@@ -2,14 +2,14 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import {Main} from "./pages/Main";
 import {BrowserRouter as Router, Route,Switch} from "react-router-dom";
-import {AllCharacters} from './pages/AllCharacters'
-import {AllEpisode} from './pages/AllEpisode'
-import {AllLocation} from './pages/AllLocation'
+import {AllCharacters} from './pages/Character/AllCharacters'
+import {AllEpisode} from './pages/Episode/AllEpisode'
+import {AllLocation} from './pages/Location/AllLocation'
 import {About} from './pages/About'
 import {NotFound} from './pages/NotFound'
-import {Personality} from "./pages/Personality";
-import {Location} from "./pages/Location";
-import {SingleEpisode} from "./pages/SingleEpisode";
+import {Personality} from "./pages/Character/Personality";
+import {Location} from "./pages/Location/Location";
+import {SingleEpisode} from "./pages/Episode/SingleEpisode";
 
 
 function App() {

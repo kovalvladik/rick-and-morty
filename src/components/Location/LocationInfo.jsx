@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import { getSingleLocation} from "../api";
+import { getSingleLocation} from "../../api";
 import {List} from "@material-ui/core";
 
 function LocationInfo () {

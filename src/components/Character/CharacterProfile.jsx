@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import React from "react";
-import {getSingleCharacter} from "../api";
+import {getSingleCharacter} from "../../api";
 import {useParams} from 'react-router-dom'
 import {Button, List} from "@material-ui/core";
 

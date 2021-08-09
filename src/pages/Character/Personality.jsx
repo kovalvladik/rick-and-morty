@@ -1,4 +1,4 @@
-import {CharacterProfile} from "../components/CharacterProfile";
+import {CharacterProfile} from "../../components/Character/CharacterProfile";
 import { makeStyles} from "@material-ui/core";
 
 

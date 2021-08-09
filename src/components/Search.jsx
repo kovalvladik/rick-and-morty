@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import InputBase from '@material-ui/core/InputBase';
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
+import {Button} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -58,8 +59,8 @@ function Search (props) {
 
     const handleSearch = (e) => {
         // setParams(e.target.value)
-        console.log(e.target.value)
-        setParams(params)
+        console.log( params)
+        // setParams( e.target.value)
     }
 
 
@@ -75,9 +76,10 @@ function Search (props) {
                     input: classes.inputInput,
                 }}
                 inputProps={{ 'aria-label': 'search' }}
-                onChange={(e)=>handleSearch(e)}
+                onChange={(e)=>setParams(e.target.value)}
                 value={params}
             />
+            <Button  onClick={handleSearch}> press</Button>
         </div>
     )
 }

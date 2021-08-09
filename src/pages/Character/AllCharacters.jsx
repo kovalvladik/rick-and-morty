@@ -1,6 +1,5 @@
-import {LocationInfo} from "../components/LocationInfo";
+import {CharacterList} from "../../components/Character/CharacterList";
 import { makeStyles} from "@material-ui/core";
-
 
 
 const useStyles = makeStyles({
@@ -13,10 +12,11 @@ const useStyles = makeStyles({
 })
 
 
-function Location(){
+function AllCharacters () {
     const classes = useStyles()
  return<main className={classes.root}>
-     <LocationInfo/>
+     <CharacterList/>
  </main>
+
 }
-export {Location}
+export {AllCharacters}

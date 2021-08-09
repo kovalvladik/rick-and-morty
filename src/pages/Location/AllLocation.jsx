@@ -1,4 +1,4 @@
-import {LocationList} from "../components/LocationList";
+import {LocationList} from "../../components/Location/LocationList";
 import {Button, Card, CardHeader, Grid, makeStyles} from "@material-ui/core";
 import CardMedia from "@material-ui/core/CardMedia";
 import {Link} from "react-router-dom";

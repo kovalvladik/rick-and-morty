@@ -1,4 +1,4 @@
-import {EpisodeList} from "../components/EpisodeList";
+import {EpisodeList} from "../../components/Episode/EpisodeList";
 import { makeStyles} from "@material-ui/core";
 
 

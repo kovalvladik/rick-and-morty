@@ -10,7 +10,7 @@ import {instance} from './axois'
 
 const getAllCharactersz = async (id) => {
     if(id===undefined){
-        const response = await instance.get(`/character?page=1`)
+        const response = await instance.get(`/character?page=`)
         return response;
     } else {
         const response = await instance.get(`/character?page=${id}`)
@@ -19,8 +19,15 @@ const getAllCharactersz = async (id) => {
         return response;
     }
 
-
 }
+
+const getFilteredCharacters = async (name) => {
+    const response = await instance.get(`/character?name=${name}`)
+    console.log(`/character?name=${name}`)
+
+    return response;
+}
+
 const getLastPage = async (id) => {
     const response = await instance.get(`/character?page${id}`)
     return response;
@@ -74,7 +81,8 @@ const getSingleEpisode = async (id) => {
         getAllEpisode,
         getSingleEpisode,
         getLastPage,
-        getAllCharactersz
+        getAllCharactersz,
+        getFilteredCharacters,
 
 
 
