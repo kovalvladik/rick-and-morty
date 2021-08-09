@@ -7,6 +7,7 @@ import {Button} from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+        width: '100%',
     },
     search: {
         position: 'relative',

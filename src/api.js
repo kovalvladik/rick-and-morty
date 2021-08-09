@@ -2,33 +2,7 @@
 import {instance} from './axois'
 
 
-//
-// const getAllCharacters = async () => {
-//     const response = await instance.get('/character?page')
-//     return response;
-// }
 
-// const getAllCharactersz = async (id) => {
-//     if(id===undefined){
-//         const response = await instance.get(`/character?page=`)
-//         instance({
-//         })
-//         return response;
-//     } else {
-//         const response = await instance.get(`/character?page=${id}`)
-//         console.log(`/character?page=${id}`)
-//
-//         return response;
-//     }
-//
-// }
-
-const getFilteredCharacters = async (name) => {
-    const response = await instance.get(`/character?name=${name}`)
-    console.log(`/character?name=${name}`)
-
-    return response;
-}
 
 const getLastPage = async (id) => {
     const response = await instance.get(`/character?page${id}`)
@@ -83,8 +57,6 @@ const getSingleEpisode = async (id) => {
         getAllEpisode,
         getSingleEpisode,
         getLastPage,
-        // getAllCharactersz,
-        getFilteredCharacters,
 
 
 

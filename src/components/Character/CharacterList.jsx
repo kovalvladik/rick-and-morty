@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { getAllCharactersz} from "../../api";
 import {CharacterItem} from "./CharacterItem";
-import {Button, Grid} from "@material-ui/core";
+import {Button, Checkbox, FormControlLabel, Grid, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 
 import { useLocation} from 'react-router';
@@ -23,8 +23,14 @@ const useStyles = makeStyles({
     },
     search:{
         paddingLeft:'10%',
+        width: '100%',
+        backgroundColor:'blue',
 
     },
+    imput:{
+        width: '70%',
+    },
+
 })
 
 
@@ -48,16 +54,19 @@ function CharacterList () {
 
     const [name, setName ]= useState('')
 
+
     const characters = (id) => {
 
         instance.get(`/character`,{
             params: {
                 page: id,
                 name: params,
+
             }
         }).then(data =>{
             setCharacter(data.data.results)
             setInfo(data.data.info)
+            setCurrentPage(1)
         })
     }
 
@@ -93,11 +102,10 @@ function CharacterList () {
             <Grid container >
                 <Grid item className={classes.search}>
 
-                        <div>
-                            <SearchIcon />
-                        </div>
+
                     <div>
-                        <InputBase
+                        <SearchIcon />
+                        <InputBase className={classes.imput}
                             placeholder="Search…"
 
                             inputProps={{ 'aria-label': 'search' }}
@@ -105,6 +113,12 @@ function CharacterList () {
                             value={params}
                         />
                         <Button  onClick={handleSearch}> press</Button>
+                        {/*<FormControlLabel*/}
+                        {/*aria-label="Acknowledge"*/}
+                        {/*onClick={setStatus('dead')}*/}
+                        {/*control={<Checkbox />}*/}
+                        {/*label="Dead"*/}
+                        {/*/>*/}
                     </div>
 
 
@@ -119,7 +133,7 @@ function CharacterList () {
 
 
         {character.map((character) => 
-        (<Grid item xs={12} sm={6} md={4} lg={3} >
+        (<Grid item xs={12} sm={6} md={6} lg={4} >
 
                     <CharacterItem  key={character.id} {...character}/>
 
@@ -128,7 +142,7 @@ function CharacterList () {
         ))}
         <Grid container>
             <Grid item>
-                <PaginationLink info={info} />
+                <PaginationLink info={info} currentPage={currentPage}/>
             </Grid>
         </Grid>
     </Grid> : <Preloader/>)

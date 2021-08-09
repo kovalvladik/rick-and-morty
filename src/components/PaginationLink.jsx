@@ -16,10 +16,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PaginationLink(props) {
     const {info} = props
+
     const {push} = useHistory()
+
     const {pathname,search} = useLocation()
+
     const classes = useStyles();
+
     const [page, setPage] = useState(+1);
+
     const handleChange = (event, value) => {
         setPage(value)
         push({
