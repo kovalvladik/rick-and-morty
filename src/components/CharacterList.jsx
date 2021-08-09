@@ -8,6 +8,7 @@ import { useLocation} from 'react-router';
 import { useHistory} from 'react-router-dom';
 import PaginationLink from "./PaginationLink";
 import {Search} from "./Search";
+import Preloader from "./Preloader";
 
 
 const useStyle = makeStyles({
@@ -55,7 +56,7 @@ function CharacterList () {
 
 
 
-    return<Grid container spacing={3}  className={classes.root}>
+    return(character.length == 0 ? <Grid container spacing={3}  className={classes.root}>
         <Search character={character}/>
         {character.map((character) => 
         (<Grid item xs={12} sm={6} md={4} lg={3} >
@@ -70,6 +71,6 @@ function CharacterList () {
                 <PaginationLink info={info} />
             </Grid>
         </Grid>
-    </Grid>
+    </Grid> : <Preloader/>)
 }
 export {CharacterList}
