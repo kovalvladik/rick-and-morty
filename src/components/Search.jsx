@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import InputBase from '@material-ui/core/InputBase';
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import {Button} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
-import {updateName, updateParams} from "../redux/reducer";
+import { updateParams} from "../redux/reducer";
 import {useHistory} from "react-router-dom";
 import {useLocation} from "react-router";
 

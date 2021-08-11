@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
 import {useLocation} from "react-router";
@@ -30,28 +30,29 @@ export default function PaginationLink() {
 
     const classes = useStyles();
 
-    const [page, setPage] = useState(+1);
 
     const handleChange = (event, value) => {
-        setPage(value)
         push({
                     pathname,
                     search: `?page=${value}`
                 })
-        console.log( +page)
     };
 
 
     const newCurrentPage = (pageNumber) => {
         dispatch(updateCurrentPage(pageNumber))
+        push({
+            pathname,
+            search: `?page=${pageNumber}`
+        })
     }
 
     const currentPageWithSearch = +search.split('=')[1]
 
 
-    useEffect( async ()=>{
+    useEffect(  ()=>{
         if(currentPageWithSearch!==currentPage){
-           await newCurrentPage(currentPageWithSearch)
+            newCurrentPage(currentPageWithSearch)
         }
 
     }, [search])

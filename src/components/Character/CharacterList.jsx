@@ -1,18 +1,8 @@
-import React, {useEffect, useState} from "react";
-import { getAllCharactersz} from "../../api";
+import React, {useEffect} from "react";
 import {CharacterItem} from "./CharacterItem";
-import {Button, Checkbox, FormControlLabel, Grid, Typography} from "@material-ui/core";
+import { Grid} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-
-import { useLocation} from 'react-router';
-import { useHistory} from 'react-router-dom';
-import PaginationLink from "../PaginationLink";
-import {Search} from "../Search";
 import Preloader from "../Preloader";
-import SearchParams from "./SearchParams";
-import SearchIcon from "@material-ui/icons/Search";
-import InputBase from "@material-ui/core/InputBase";
-import {instance} from "../../axois";
 import {useDispatch, useSelector} from "react-redux";
 import {axiosCharacters} from "../../redux/AsyncActions/characters";
 
@@ -40,20 +30,13 @@ function CharacterList () {
 
     const classes = useStyles()
 
-    const {push} = useHistory()
-
-    const  {pathname,search} = useLocation()
-
     const dispatch = useDispatch()
 
     const character = useSelector(state => state.character)
 
-
     const currentPage = useSelector(state => state.currentPage)
 
     const params = useSelector(state => state.params)
-
-    console.log(currentPage)
 
     useEffect(async ()=>{
 

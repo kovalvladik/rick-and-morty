@@ -3,8 +3,6 @@ import {getAllEpisode} from "../../api";
 import {Grid} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import {EpisodeItem} from "./EpisodeItem";
-import PaginationLink from "../PaginationLink";
-import {useHistory} from "react-router-dom";
 import {useLocation} from "react-router";
 import Preloader from "../Preloader";
 
@@ -21,7 +19,6 @@ const useStyle = makeStyles({
 function EpisodeList () {
 
     const classes = useStyle()
-    const {push} = useHistory()
 
     const  {pathname,search} = useLocation()
 
