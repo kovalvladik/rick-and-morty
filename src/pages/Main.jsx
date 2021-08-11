@@ -2,8 +2,6 @@ import {Button, Card, CardHeader, Grid, makeStyles} from "@material-ui/core";
 import CardMedia from "@material-ui/core/CardMedia";
 import {Link} from "react-router-dom";
 
-
-
 const useStyles = makeStyles({
     root:{
         minHeight: 'calc(100vh - 64px - 116px)',
@@ -24,10 +22,7 @@ const useStyles = makeStyles({
 
 function Main () {
 
-
     const classes = useStyles()
-
-
 
     return< Grid container className={classes.root} spacing={3} >
       <Grid item  className={classes.item}>

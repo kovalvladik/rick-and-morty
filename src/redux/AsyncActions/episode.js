@@ -1,16 +1,16 @@
-import {getNewCharacter, getNewInfo} from "../reducer";
+import {getNewEpisode, getNewInfo} from "../Reducers/character_reducer";
 import {instance} from "../../axois";
 
-export const axiosCharacters = (currentPage,params) => {
+export const axiosEpisode = (currentPage,params) => {
     return function (dispatch){
-        instance.get(`/character/`,{
+        instance.get(`/episode`,{
             params: {
-                page: currentPage,
+                page: currentPage!==NaN? currentPage:1,
                 name: params,
 
             }
         }).then(data =>{
-            dispatch(getNewCharacter(data.data.results))
+            dispatch(getNewEpisode(data.data.results))
             dispatch(getNewInfo(data.data.info))
         })
     }

@@ -1,12 +1,10 @@
-import React, {useEffect, useState} from "react";
-import { getAllLocation} from "../../api";
+import React, {useEffect} from "react";
 import {Grid} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import {LocationItem} from "./LocationItem";
-import PaginationLink from "../PaginationLink";
-import {useHistory} from "react-router-dom";
-import {useLocation} from "react-router";
 import Preloader from "../Preloader";
+import {axiosLocation} from "../../redux/AsyncActions/location";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const useStyle = makeStyles({
@@ -26,28 +24,18 @@ function LocationList () {
 
     const classes = useStyle()
 
-    const {push} = useHistory()
+    const dispatch = useDispatch()
 
-    const  {pathname,search} = useLocation()
+    const location = useSelector(state => state.location)
 
-    const [location, setLocation] = useState([])
-    const [info, setInfo] = useState({})
+    const currentPage = useSelector(state => state.currentPage)
 
-    useEffect(()=>{
-        if( search.split('=')[1]!== 1){
-            getAllLocation( search.split('=')[1]).then(data =>{
-                setLocation(data.data.results)
-                setInfo(data.data.info)
-            })
-        }else {
-            getAllLocation().then(data =>{
-                setLocation(data.data.results)
-                setInfo(data.data.info)
-            })
-        }
+    const params = useSelector(state => state.params)
 
 
-    },[search])
+    useEffect(async ()=>{
+        await  dispatch(axiosLocation(currentPage,params))
+    },[currentPage,params])
 
     return(location.length !==0 ?  <Grid container spacing={3}  className={classes.root}>
         {location.map((location) =>
@@ -55,11 +43,7 @@ function LocationList () {
                     <LocationItem  key={location.id} {...location}/>
                 </Grid>
             ))}
-        <Grid container className={classes.pagination}>
-            <Grid item>
-                < PaginationLink info={info} />
-            </Grid>
-        </Grid>
+
     </Grid> : <Preloader/>)
 }
 export {LocationList}

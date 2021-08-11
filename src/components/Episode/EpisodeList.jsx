@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
-import {getAllEpisode} from "../../api";
+import React, {useEffect} from "react";
 import {Grid} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import {EpisodeItem} from "./EpisodeItem";
-import {useLocation} from "react-router";
 import Preloader from "../Preloader";
+import {useDispatch, useSelector} from "react-redux";
+import {axiosEpisode} from "../../redux/AsyncActions/episode";
 
 
 const useStyle = makeStyles({
@@ -20,25 +20,19 @@ function EpisodeList () {
 
     const classes = useStyle()
 
-    const  {pathname,search} = useLocation()
+    const dispatch = useDispatch()
 
-    const [episode, setEpisode] = useState([])
-    const [info, setInfo] = useState({})
+    const episode = useSelector(state => state.episode)
 
-    useEffect(()=>{
-        if( search.split('=')[1]!== 1){
-            getAllEpisode(search.split('=')[1]).then(data =>{
-                setEpisode(data.data.results)
-                setInfo(data.data.info)
-            })
-        } else {
-            getAllEpisode().then(data =>{
-                setEpisode(data.data.results)
-                setInfo(data.data.info)
-            })
-        }
+    const currentPage = useSelector(state => state.currentPage)
 
-    },[search])
+    const params = useSelector(state => state.params)
+
+
+    useEffect(async ()=>{
+        await  dispatch(axiosEpisode(currentPage,params))
+
+    },[currentPage,params])
 
     return(episode.length !== 0 ? <Grid container spacing={3}  className={classes.root}>
         {episode.map((episode) =>

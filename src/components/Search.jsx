@@ -4,7 +4,7 @@ import { alpha, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import {Button} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
-import { updateParams} from "../redux/reducer";
+import { updateParams} from "../redux/Reducers/character_reducer";
 import {useHistory} from "react-router-dom";
 import {useLocation} from "react-router";
 

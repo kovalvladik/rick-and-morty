@@ -30,16 +30,6 @@ const getSingleLocation = async (id) => {
     return response;
 }
 
-const getAllEpisode = async (id) => {
-    if(id==undefined){
-        const response = await instance.get( `/episode?page=`)
-        return response;
-    } else {
-        const response = await instance.get( `/episode?page=${id}`)
-        return response;
-    }
-
-}
 
 const getSingleEpisode = async (id) => {
     const response = await instance.get( `/episode/${id}`)
@@ -54,7 +44,6 @@ const getSingleEpisode = async (id) => {
             getSingleCharacter,
              getAllLocation,
         getSingleLocation,
-        getAllEpisode,
         getSingleEpisode,
         getLastPage,
 

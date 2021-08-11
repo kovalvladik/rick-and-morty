@@ -1,4 +1,4 @@
-import {getNewCharacter, getNewInfo, updateCurrentPage} from "../reducer";
+import {getNewCharacter, getNewInfo, updateCurrentPage} from "../Reducers/character_reducer";
 import {instance} from "../../axois";
 
 export const axiosCharacters = (currentPage,params) => {
