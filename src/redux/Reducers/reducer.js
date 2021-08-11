@@ -6,7 +6,7 @@ const defaultState = {
     episode: [],
     location: [],
     info: {},
-    currentPage: 1,
+    currentPage: +1,
     params: '',
     name: '',
 
@@ -20,7 +20,7 @@ const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
 const SET_PARAMS = "SET_PARAMS"
 const SET_NAME = "SET_NAME"
 
-const character_reducer = (state = defaultState, action) => {
+const reducer = (state = defaultState, action) => {
     switch (action.type) {
         case GET_LOCATION:
             return {
@@ -71,7 +71,7 @@ const character_reducer = (state = defaultState, action) => {
 
 }
 
-export {character_reducer}
+export {reducer}
 export const getNewCharacter = (payload) =>({type:GET_CHARACTER,payload})
 export const getNewLocation = (payload) =>({type:GET_LOCATION,payload})
 export const getNewEpisode = (payload) =>({type:GET_EPISODE,payload})

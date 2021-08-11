@@ -5,6 +5,7 @@ import {EpisodeItem} from "./EpisodeItem";
 import Preloader from "../Preloader";
 import {useDispatch, useSelector} from "react-redux";
 import {axiosEpisode} from "../../redux/AsyncActions/episode";
+import {updateCurrentPage} from "../../redux/Reducers/reducer";
 
 
 const useStyle = makeStyles({
@@ -30,7 +31,11 @@ function EpisodeList () {
 
 
     useEffect(async ()=>{
-        await  dispatch(axiosEpisode(currentPage,params))
+
+
+        await  dispatch(axiosEpisode(isNaN(currentPage)?dispatch(updateCurrentPage(1)):currentPage,params))
+        console.log(currentPage)
+
 
     },[currentPage,params])
 

@@ -4,25 +4,9 @@ import {instance} from './axois'
 
 
 
-const getLastPage = async (id) => {
-    const response = await instance.get(`/character?page${id}`)
-    return response;
-}
-
 const getSingleCharacter = async (id) => {
     const response = await instance.get(`/character/${id}`)
     return response;
-}
-const getAllLocation = async (id) => {
-    if(id==undefined){
-        const response = await instance.get(`/location`)
-        return response;
-    }else {
-        const response = await instance.get(`/location?page=${id}`)
-        return response;
-    }
-
-
 }
 
 const getSingleLocation = async (id) => {
@@ -42,10 +26,8 @@ const getSingleEpisode = async (id) => {
 
     export {
             getSingleCharacter,
-             getAllLocation,
         getSingleLocation,
         getSingleEpisode,
-        getLastPage,
 
 
 

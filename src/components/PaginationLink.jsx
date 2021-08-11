@@ -4,7 +4,7 @@ import Pagination from '@material-ui/lab/Pagination';
 import {useLocation} from "react-router";
 import {useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {updateCurrentPage} from "../redux/Reducers/character_reducer";
+import {updateCurrentPage} from "../redux/Reducers/reducer";
 
 const useStyles = makeStyles((theme) => ({
     root: {
