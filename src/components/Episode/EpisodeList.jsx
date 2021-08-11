@@ -49,11 +49,7 @@ function EpisodeList () {
                     <EpisodeItem  key={episode.id} {...episode}/>
                 </Grid>
             ))}
-        <Grid container>
-            <Grid item>
-                <PaginationLink info={info} />
-            </Grid>
-        </Grid>
+
     </Grid> : <Preloader/>)
 }
 export {EpisodeList}

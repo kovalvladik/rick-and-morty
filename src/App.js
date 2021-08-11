@@ -10,11 +10,16 @@ import {NotFound} from './pages/NotFound'
 import {Personality} from "./pages/Character/Personality";
 import {Location} from "./pages/Location/Location";
 import {SingleEpisode} from "./pages/Episode/SingleEpisode";
+import {createStore} from "redux";
+import {Provider} from "react-redux";
+import {store} from "./redux/contex";
+
+
 
 
 function App() {
   return (
-    <>
+    <Provider store={store}>
     <Router basename='/rick-and-morty'>
         <Header/>
         <main>
@@ -33,7 +38,7 @@ function App() {
         <Footer/>
     </Router>
     
-    </>
+    </Provider>
   );
 }
 

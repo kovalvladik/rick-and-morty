@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
 import {useLocation} from "react-router";
 import {useHistory} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {updateCurrentPage} from "../redux/reducer";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,10 +16,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function PaginationLink(props) {
-    const {info} = props
+export default function PaginationLink() {
 
     const {push} = useHistory()
+
+    const dispatch = useDispatch()
+
+    const currentPage = useSelector(state => state.currentPage)
+
+    const info = useSelector(state => state.info)
 
     const {pathname,search} = useLocation()
 
@@ -34,13 +41,20 @@ export default function PaginationLink(props) {
         console.log( +page)
     };
 
-    const currentPage = +search.split('=')[1]
-    useEffect(async ()=>{
-        if(currentPage!==page){
-             setPage(currentPage)
+
+    const newCurrentPage = (pageNumber) => {
+        dispatch(updateCurrentPage(pageNumber))
+    }
+
+    const currentPageWithSearch = +search.split('=')[1]
+
+
+    useEffect( async ()=>{
+        if(currentPageWithSearch!==currentPage){
+           await newCurrentPage(currentPageWithSearch)
         }
 
-    }, [currentPage])
+    }, [search])
 
     return (
         <div className={classes.root}>

@@ -13,6 +13,8 @@ import SearchParams from "./SearchParams";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import {instance} from "../../axois";
+import {useDispatch, useSelector} from "react-redux";
+import {axiosCharacters} from "../../redux/AsyncActions/characters";
 
 
 const useStyles = makeStyles({
@@ -42,109 +44,32 @@ function CharacterList () {
 
     const  {pathname,search} = useLocation()
 
-    const [character, setCharacter] = useState([])
+    const dispatch = useDispatch()
 
-    const [filteredChar, setFilteredChar] = useState([])
-
-    const [info, setInfo] = useState({})
-
-    const [currentPage, setCurrentPage] = useState(1)
-
-    const [params, setParams ]= useState('')
-
-    const [name, setName ]= useState('')
+    const character = useSelector(state => state.character)
 
 
-    const characters = (id) => {
+    const currentPage = useSelector(state => state.currentPage)
 
-        instance.get(`/character`,{
-            params: {
-                page: id,
-                name: params,
+    const params = useSelector(state => state.params)
 
-            }
-        }).then(data =>{
-            setCharacter(data.data.results)
-            setInfo(data.data.info)
-            setCurrentPage(1)
-        })
-    }
-
-
-
+    console.log(currentPage)
 
     useEffect(async ()=>{
 
-        await characters(search.split('=')[1])
+        await  dispatch(axiosCharacters(currentPage,params))
 
-    }, [search,name])
-
-
-
-    const handleSearch = () => {
-        setName(params)
-        console.log( name)
-        push({
-            pathname,
-            search: `?name=${params}`
-        })
-
-    }
-
+    }, [currentPage,params])
 
 
 
     return(character.length !== 0 ?
         <Grid container spacing={3}  className={classes.root}>
-        {/*<Search character={character}/>*/}
-
-
-            <Grid container >
-                <Grid item className={classes.search}>
-
-
-                    <div>
-                        <SearchIcon />
-                        <InputBase className={classes.imput}
-                            placeholder="Search…"
-
-                            inputProps={{ 'aria-label': 'search' }}
-                            onChange={(e)=>setParams(e.target.value)}
-                            value={params}
-                        />
-                        <Button  onClick={handleSearch}> press</Button>
-                        {/*<FormControlLabel*/}
-                        {/*aria-label="Acknowledge"*/}
-                        {/*onClick={setStatus('dead')}*/}
-                        {/*control={<Checkbox />}*/}
-                        {/*label="Dead"*/}
-                        {/*/>*/}
-                    </div>
-
-
-                </Grid>
-
-
-            </Grid>
-
-
-
-
-
-
         {character.map((character) => 
         (<Grid item xs={12} sm={6} md={6} lg={4} >
-
                     <CharacterItem  key={character.id} {...character}/>
-
-
         </Grid>
         ))}
-        <Grid container>
-            <Grid item>
-                <PaginationLink info={info} currentPage={currentPage}/>
-            </Grid>
-        </Grid>
     </Grid> : <Preloader/>)
 }
 export {CharacterList}
