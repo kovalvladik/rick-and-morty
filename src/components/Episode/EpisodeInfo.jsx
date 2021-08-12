@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {useParams} from "react-router-dom";
-import { getSingleEpisode} from "../../api";
 import {List} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
 import {axiosSingleEpisode} from "../../redux/AsyncActions/singleEpisode";
