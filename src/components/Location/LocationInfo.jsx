@@ -1,21 +1,23 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {useParams} from "react-router-dom";
-import { getSingleLocation} from "../../api";
 import {List} from "@material-ui/core";
+import {axiosSingleLocation} from "../../redux/AsyncActions/singleLocation";
+import {useDispatch, useSelector} from "react-redux";
 
 function LocationInfo () {
-    const [location,setLocation] = useState([])
+
+
+    const location = useSelector(state => state.singleLocation)
 
     const {name,type,dimension,residents} = location
+
+    const dispatch = useDispatch()
 
     const {id} = useParams()
 
     useEffect(()=>{
-        getSingleLocation(id).then(data =>{
-            setLocation(data.data)
-            console.log('location')
-        })
-    },[id])
+       dispatch(axiosSingleLocation(id))
+    },[])
     return<>
         <List >
             {name}

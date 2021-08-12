@@ -6,7 +6,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { IconButton} from "@material-ui/core";
-import {CharacterProfile} from "./Character/CharacterProfile";
 import {Link} from "react-router-dom";
 import HomeIcon from '@material-ui/icons/Home';
 
@@ -44,7 +43,6 @@ export default function Header() {
                     <Typography align='center' variant="h6" className={classes.title}  >
                         Rick and Morty SPA
                     </Typography>
-                    <CharacterProfile/>
                     <Button   color="inherit"  component={Link} to={'/about'}>About</Button>
                 </Toolbar>
             </AppBar>

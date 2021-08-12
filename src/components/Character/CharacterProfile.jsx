@@ -1,27 +1,26 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import React from "react";
-import {getSingleCharacter} from "../../api";
 import {useParams} from 'react-router-dom'
-import {Button, List} from "@material-ui/core";
+import { List} from "@material-ui/core";
+import {useDispatch, useSelector} from "react-redux";
+import {axiosSingleCharacter} from "../../redux/AsyncActions/singleCharacter";
 
 function CharacterProfile () {
-    const [character,setCharacter] = useState([])
 
-    const {name,status,species,gender,episode} = character
+    const character = useSelector(state => state.singleCharacter)
+
+    const dispatch = useDispatch()
 
     const {id} = useParams()
 
-    useEffect(()=>{
-        getSingleCharacter(id).then(data =>{
-            setCharacter(data.data)
-            console.log('character')
-        })
-    },[id])
+    useEffect( async ()=>{
+      await  dispatch(axiosSingleCharacter(id))
+    },[])
         return<>
             <List >
-                {name}
-                {status}
-                {species}
+                {character.name}
+                {character.status}
+                {character.species}
                 {/*{*/}
                 {/*    episode*/}
                 {/*        ? episode*/}
