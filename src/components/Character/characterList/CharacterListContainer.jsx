@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {axiosCharacters} from "../../redux/AsyncActions/characters";
+import {axiosCharacters} from "../../../redux/AsyncActions/characters";
 import {CharacterList} from "./CharacterList";
 
 function CharacterListContainer() {
