@@ -12,6 +12,7 @@ const defaultState = {
     currentPage: +1,
     params: '',
     name: '',
+    like:0
 
 }
 
@@ -25,9 +26,22 @@ const GET_INFO = "GET_INFO"
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
 const SET_PARAMS = "SET_PARAMS"
 const SET_NAME = "SET_NAME"
+const ADD_LIKE = "ADD_LIKE"
+const REMOVE_LIKE = "REMOVE_LIKE"
 
 const reducer = (state = defaultState, action) => {
     switch (action.type) {
+        case REMOVE_LIKE:
+            return {
+                ...state,
+                like: state.like-1
+            }
+
+        case ADD_LIKE:
+            return {
+                ...state,
+                like: state.like+1
+            }
         case GET_SINGLE_EPISODE:
             return {
                 ...state,
@@ -103,3 +117,5 @@ export const getNewInfo = (payload) =>({type:GET_INFO,payload})
 export const updateCurrentPage = (payload) =>({type:SET_CURRENT_PAGE,payload})
 export const updateParams = (payload) =>({type:SET_PARAMS,payload})
 export const updateName = (payload) =>({type:SET_NAME,payload})
+export const addLike = () =>({type:ADD_LIKE})
+export const removeLike = () =>({type:REMOVE_LIKE})

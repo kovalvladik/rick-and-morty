@@ -47,7 +47,7 @@ export default function PaginationLink() {
         })
     }
 
-    const currentPageWithSearch = +search.split('=')[1]
+    const currentPageWithSearch = +search.split('=')[1] || 1
 
 
     useEffect(  ()=>{

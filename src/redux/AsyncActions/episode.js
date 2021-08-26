@@ -3,9 +3,9 @@ import {instance} from "../../axois";
 
 export const axiosEpisode = (currentPage,params) => {
     return function (dispatch){
-        instance.get(`/episode?page=${!isNaN(currentPage)?currentPage:1}`,{
+        instance.get(`/episode`,{
             params: {
-                // page: currentPage,
+                page: currentPage,
                 name: params,
 
             }

@@ -33,8 +33,8 @@ function LocationList () {
     const params = useSelector(state => state.params)
 
 
-    useEffect(async ()=>{
-        await  dispatch(axiosLocation(currentPage,params))
+    useEffect( ()=>{
+          dispatch(axiosLocation(currentPage,params))
     },[currentPage,params])
 
     return(location.length !==0 ?  <Grid container spacing={3}  className={classes.root}>

@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import { IconButton} from "@material-ui/core";
 import {Link} from "react-router-dom";
 import HomeIcon from '@material-ui/icons/Home';
+import {useSelector} from "react-redux";
 
 
 
@@ -31,6 +32,8 @@ const useStyles = makeStyles({
 
 export default function Header() {
     const classes = useStyles();
+    const like = useSelector(state => state.like)
+
 
     return (
         <div className={classes.root}>
@@ -42,6 +45,9 @@ export default function Header() {
                     </IconButton>
                     <Typography align='center' variant="h6" className={classes.title}  >
                         Rick and Morty SPA
+                    </Typography>
+                    <Typography>
+                        Favorites: {like}
                     </Typography>
                     <Button   color="inherit"  component={Link} to={'/about'}>About</Button>
                 </Toolbar>
