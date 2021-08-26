@@ -32,5 +32,4 @@ function LocationList() {
 
     </Grid> : <Preloader/>)
 }
-
 export {LocationList}

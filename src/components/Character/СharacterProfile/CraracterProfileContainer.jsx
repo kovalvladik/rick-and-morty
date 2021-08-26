@@ -4,7 +4,6 @@ import {useEffect} from "react";
 import {axiosSingleCharacter} from "../../../redux/AsyncActions/singleCharacter";
 import {CharacterProfile} from "./CharacterProfile";
 
-
 export default function CharacterProfileContainer() {
 
     const dispatch = useDispatch()
