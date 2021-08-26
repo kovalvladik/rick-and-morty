@@ -1,16 +1,13 @@
 import React from "react";
 import {List} from "@material-ui/core";
-import {useSelector} from "react-redux";
 
-function CharacterProfile() {
-
-    const character = useSelector(state => state.singleCharacter)
+function CharacterProfile({name,status,species}) {
 
     return <>
         <List>
-            {character.name}
-            {character.status}
-            {character.species}
+            {name}
+            {status}
+            {species}
             {/*{*/}
             {/*    episode*/}
             {/*        ? episode*/}

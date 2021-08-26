@@ -1,12 +1,7 @@
 import React from "react";
 import {List} from "@material-ui/core";
-import {useSelector} from "react-redux";
 
-function EpisodeInfo() {
-
-    const episodes = useSelector(state => state.singleEpisode)
-
-    const {name, air_date, episode, characters} = episodes
+function EpisodeInfo({name, air_date, episode, characters}) {
 
     return <>
         <List>
@@ -18,7 +13,6 @@ function EpisodeInfo() {
 
         </List>
     </>
-
 }
 
 export {EpisodeInfo}
