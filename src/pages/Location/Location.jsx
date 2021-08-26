@@ -1,5 +1,5 @@
-import {LocationInfo} from "../../components/Location/LocationInfo";
 import { makeStyles} from "@material-ui/core";
+import LocationInfoContainer from "../../components/Location/LocationInfo/LocationInfoContainer";
 
 
 
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 function Location(){
     const classes = useStyles()
  return<main className={classes.root}>
-     <LocationInfo/>
+     <LocationInfoContainer/>
  </main>
 }
 export {Location}

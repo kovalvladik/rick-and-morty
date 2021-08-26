@@ -1,8 +1,9 @@
-import {LocationList} from "../../components/Location/LocationList";
+import {LocationList} from "../../components/Location/LocationList/LocationList";
 import { makeStyles} from "@material-ui/core";
 
 import PaginationLink from "../../components/PaginationLink";
 import {Search} from "../../components/Search";
+import LocationListContainer from "../../components/Location/LocationList/LocationListContainer";
 
 
 
@@ -20,7 +21,7 @@ function AllLocation () {
     const classes = useStyles()
 return<main className={classes.root}>
     <Search/>
-    <LocationList/>
+    <LocationListContainer/>
     <PaginationLink/>
 </main>
 }
