@@ -1,12 +1,9 @@
-
-import {EpisodeInfo} from "../../components/Episode/EpisodeInfo";
-import { makeStyles} from "@material-ui/core";
-
-
+import {makeStyles} from "@material-ui/core";
+import EpisodeInfoContainer from "../../components/Episode/EpisodeInfo/EpisodeInfoContainer";
 
 
 const useStyles = makeStyles({
-    root:{
+    root: {
         minHeight: 'calc(100vh - 64px - 116px)',
 
     },
@@ -15,11 +12,12 @@ const useStyles = makeStyles({
 })
 
 
-function SingleEpisode(){
+function SingleEpisode() {
     const classes = useStyles()
-    return<main className={classes.root}>
+    return <main className={classes.root}>
 
-        hey:<EpisodeInfo/>
-    </main>
+        hey:<EpisodeInfoContainer/>
+</main>
 }
+
 export {SingleEpisode}

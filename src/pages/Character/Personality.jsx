@@ -1,5 +1,5 @@
 import {makeStyles} from "@material-ui/core";
-import CharacterProfileContainer from "../../components/Character/characterProfile/CraracterProfileContainer";
+import CharacterProfileContainer from "../../components/Character/СharacterProfile/CraracterProfileContainer";
 
 const useStyles = makeStyles({
     root: {
