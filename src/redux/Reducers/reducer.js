@@ -1,18 +1,15 @@
-
-
-
 const defaultState = {
     character: [],
-    singleCharacter:[],
-    singleLocation:[],
-    singleEpisode:[],
+    singleCharacter: [],
+    singleLocation: [],
+    singleEpisode: [],
     episode: [],
     location: [],
     info: {},
     currentPage: +1,
     params: '',
     name: '',
-    like:0
+    like: 0
 
 }
 
@@ -34,13 +31,13 @@ const reducer = (state = defaultState, action) => {
         case REMOVE_LIKE:
             return {
                 ...state,
-                like: state.like-1
+                like: state.like - 1
             }
 
         case ADD_LIKE:
             return {
                 ...state,
-                like: state.like+1
+                like: state.like + 1
             }
         case GET_SINGLE_EPISODE:
             return {
@@ -68,36 +65,34 @@ const reducer = (state = defaultState, action) => {
                 episode: action.payload
             }
         case GET_CHARACTER:
-            return{
+            return {
                 ...state,
                 character: action.payload
             }
         case GET_INFO:
-            return{
+            return {
                 ...state,
                 info: action.payload
 
             }
         case SET_CURRENT_PAGE:
-            return{
+            return {
                 ...state,
                 currentPage: action.payload
 
             }
         case SET_PARAMS:
-            return{
+            return {
                 ...state,
                 params: action.payload
 
             }
         case SET_NAME:
-            return{
+            return {
                 ...state,
                 name: action.payload
 
             }
-
-
 
 
         default:
@@ -107,15 +102,15 @@ const reducer = (state = defaultState, action) => {
 }
 
 export {reducer}
-export const getNewCharacter = (payload) =>({type:GET_CHARACTER,payload})
-export const getSingleCharacter = (payload) =>({type:GET_SINGLE_CHARACTER,payload})
-export const getNewLocation = (payload) =>({type:GET_LOCATION,payload})
-export const getSingleLocation = (payload) =>({type:GET_SINGLE_LOCATION,payload})
-export const getNewEpisode = (payload) =>({type:GET_EPISODE,payload})
-export const getSingleEpisode = (payload) =>({type:GET_SINGLE_EPISODE,payload})
-export const getNewInfo = (payload) =>({type:GET_INFO,payload})
-export const updateCurrentPage = (payload) =>({type:SET_CURRENT_PAGE,payload})
-export const updateParams = (payload) =>({type:SET_PARAMS,payload})
-export const updateName = (payload) =>({type:SET_NAME,payload})
-export const addLike = () =>({type:ADD_LIKE})
-export const removeLike = () =>({type:REMOVE_LIKE})
+export const getNewCharacter = (payload) => ({type: GET_CHARACTER, payload})
+export const getSingleCharacter = (payload) => ({type: GET_SINGLE_CHARACTER, payload})
+export const getNewLocation = (payload) => ({type: GET_LOCATION, payload})
+export const getSingleLocation = (payload) => ({type: GET_SINGLE_LOCATION, payload})
+export const getNewEpisode = (payload) => ({type: GET_EPISODE, payload})
+export const getSingleEpisode = (payload) => ({type: GET_SINGLE_EPISODE, payload})
+export const getNewInfo = (payload) => ({type: GET_INFO, payload})
+export const updateCurrentPage = (payload) => ({type: SET_CURRENT_PAGE, payload})
+export const updateParams = (payload) => ({type: SET_PARAMS, payload})
+export const updateName = (payload) => ({type: SET_NAME, payload})
+export const addLike = () => ({type: ADD_LIKE})
+export const removeLike = () => ({type: REMOVE_LIKE})
