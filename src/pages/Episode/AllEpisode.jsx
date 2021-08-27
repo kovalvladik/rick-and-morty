@@ -1,5 +1,5 @@
 import {makeStyles} from "@material-ui/core";
-import PaginationLink from "../../components/PaginationLink";
+import PaginationLink from "../../components/PaginationLilk/PaginationLink";
 import {Search} from "../../components/Search";
 import EpisodeListContainer from "../../components/Episode/EpiosdeList/EpisodeListContainer";
 

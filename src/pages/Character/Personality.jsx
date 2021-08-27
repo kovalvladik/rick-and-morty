@@ -9,11 +9,14 @@ const useStyles = makeStyles({
 
 })
 
+console.log(
+    'here'
+)
+
 function Personality() {
     const classes = useStyles()
     return <main className={classes.root}>
-
-        hey:<CharacterProfileContainer/>
+        <CharacterProfileContainer/>
     </main>
 }
 

@@ -14,7 +14,10 @@ export default function CharacterProfileContainer() {
 
     useEffect(() => {
         dispatch(axiosSingleCharacter(id))
+        console.log('111')
     }, [])
+
+    // dispatch(axiosSingleCharacter(id))
     return <>
         <CharacterProfile {...character}/>
     </>
