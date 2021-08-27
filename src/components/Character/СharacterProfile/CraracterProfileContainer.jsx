@@ -17,7 +17,7 @@ export default function CharacterProfileContainer() {
         console.log('111')
     }, [])
 
-    // dispatch(axiosSingleCharacter(id))
+    dispatch(axiosSingleCharacter(id))
     return <>
         <CharacterProfile {...character}/>
     </>
