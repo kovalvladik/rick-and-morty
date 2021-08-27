@@ -17,7 +17,8 @@ function CharacterProfile() {
                             <Button item xs={12} sm={6} md={6} lg={4} key={episode.id}{...episode}>
                                 {episode.split('https://rickandmortyapi.com/api/episode/')}</Button>
                         ))}
-            </Grid>: <CircularIndeterminate/>}
+                        {/* eslint-disable-next-line react/jsx-no-undef */}
+            </Grid>: <Preloader/>}
         </List>
 }
 
