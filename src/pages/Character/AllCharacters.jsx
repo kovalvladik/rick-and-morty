@@ -1,7 +1,7 @@
 import { makeStyles} from "@material-ui/core";
 import PaginationLink from "../../components/PaginationLilk/PaginationLink";
 import React from "react";
-import {Search} from "../../components/Search";
+import {Search} from "../../components/Search/Search";
 import {CharacterList} from "../../components/Character/CharacterList/CharacterList";
 import {CharacterListContainer} from "../../components/Character/CharacterList/CharacterListContainer";
 

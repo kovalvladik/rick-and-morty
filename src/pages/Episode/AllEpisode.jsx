@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core";
 import PaginationLink from "../../components/PaginationLilk/PaginationLink";
-import {Search} from "../../components/Search";
+import {Search} from "../../components/Search/Search";
 import EpisodeListContainer from "../../components/Episode/EpiosdeList/EpisodeListContainer";
 
 const useStyles = makeStyles({

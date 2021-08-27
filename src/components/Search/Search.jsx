@@ -1,10 +1,10 @@
 import React from 'react';
 import InputBase from '@material-ui/core/InputBase';
-import { alpha, makeStyles } from '@material-ui/core/styles';
+import {alpha, makeStyles} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import {Button} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
-import { updateParams} from "../redux/Reducers/reducer";
+import {updateParams} from "../../redux/Reducers/reducer";
 import {useHistory} from "react-router-dom";
 import {useLocation} from "react-router";
 
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: alpha(theme.palette.common.white, 0.25),
 
         },
-        margin:'1rem',
+        margin: '1rem',
         width: '100%',
         [theme.breakpoints.up('sm')]: {
             marginLeft: theme.spacing(1),
@@ -55,35 +55,29 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Search () {
+function Search() {
     const classes = useStyles();
 
     const {push} = useHistory()
 
-    const  {pathname,search} = useLocation()
-
+    const {pathname, search} = useLocation()
 
     const params = useSelector(state => state.params)
 
-    const name = useSelector(state => state.name)
-
     const dispatch = useDispatch()
-
-
 
     const handleSearch = (e) => {
         dispatch(updateParams(e))
         push({
-                    pathname,
-                    search: `?name=${params}`
-                })
+            pathname,
+            search: `?name=${params}`
+        })
     }
 
-
-    return(
+    return (
         <div className={classes.search}>
             <div className={classes.searchIcon}>
-                <SearchIcon />
+                <SearchIcon/>
             </div>
             <InputBase
                 placeholder="Search…"
@@ -91,12 +85,13 @@ function Search () {
                     root: classes.inputRoot,
                     input: classes.inputInput,
                 }}
-                inputProps={{ 'aria-label': 'search' }}
-                onChange={(e)=>handleSearch(e.target.value)}
+                inputProps={{'aria-label': 'search'}}
+                onChange={(e) => handleSearch(e.target.value)}
                 value={params}
             />
             {/*<Button  onClick={handleSearch}> press</Button>*/}
         </div>
     )
 }
+
 export {Search}
