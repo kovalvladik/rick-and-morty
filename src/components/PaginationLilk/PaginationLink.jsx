@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
 import {useLocation} from "react-router";
 import {useHistory} from "react-router-dom";
@@ -26,18 +26,16 @@ export default function PaginationLink() {
 
     const info = useSelector(state => state.info)
 
-    const {pathname,search} = useLocation()
+    const {pathname, search} = useLocation()
 
     const classes = useStyles();
 
-
     const handleChange = (event, value) => {
         push({
-                    pathname,
-                    search: `?page=${value}`
-                })
+            pathname,
+            search: `?page=${value}`
+        })
     };
-
 
     const newCurrentPage = (pageNumber) => {
         dispatch(updateCurrentPage(pageNumber))
@@ -49,9 +47,8 @@ export default function PaginationLink() {
 
     const currentPageWithSearch = +search.split('=')[1] || 1
 
-
-    useEffect(  ()=>{
-        if(currentPageWithSearch!==currentPage){
+    useEffect(() => {
+        if (currentPageWithSearch !== currentPage) {
             newCurrentPage(currentPageWithSearch)
         }
 
@@ -59,7 +56,7 @@ export default function PaginationLink() {
 
     return (
         <div className={classes.root}>
-            <Pagination  siblingCount={1} count={info.pages} page={currentPage} onChange={handleChange } />
+            <Pagination siblingCount={1} count={info.pages} page={currentPage} onChange={handleChange}/>
         </div>
     );
 }

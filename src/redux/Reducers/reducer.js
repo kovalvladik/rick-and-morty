@@ -9,7 +9,8 @@ const defaultState = {
     currentPage: +1,
     params: '',
     name: '',
-    like: 0
+    like: 0,
+    loading: false,
 
 }
 
@@ -94,13 +95,11 @@ const reducer = (state = defaultState, action) => {
 
             }
 
-
         default:
             return state
     }
 
 }
-
 export {reducer}
 export const getNewCharacter = (payload) => ({type: GET_CHARACTER, payload})
 export const getSingleCharacter = (payload) => ({type: GET_SINGLE_CHARACTER, payload})
