@@ -26,9 +26,21 @@ const SET_PARAMS = "SET_PARAMS"
 const SET_NAME = "SET_NAME"
 const ADD_LIKE = "ADD_LIKE"
 const REMOVE_LIKE = "REMOVE_LIKE"
+const LOADING_TRUE = 'LOADING_TRUE'
+const LOADING_FALSE = 'LOADING_FALSE'
 
 const reducer = (state = defaultState, action) => {
     switch (action.type) {
+        case LOADING_FALSE:
+            return {
+                ...state,
+                loading: false
+            }
+        case LOADING_TRUE:
+            return {
+                ...state,
+                loading: true
+            }
         case REMOVE_LIKE:
             return {
                 ...state,
@@ -113,3 +125,5 @@ export const updateParams = (payload) => ({type: SET_PARAMS, payload})
 export const updateName = (payload) => ({type: SET_NAME, payload})
 export const addLike = () => ({type: ADD_LIKE})
 export const removeLike = () => ({type: REMOVE_LIKE})
+export const loadingTrue = () => ({type: LOADING_TRUE})
+export const loadingFalse = () => ({type: LOADING_FALSE})

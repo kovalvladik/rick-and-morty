@@ -33,6 +33,7 @@ const useStyles = makeStyles({
 export default function Header() {
     const classes = useStyles();
     const like = useSelector(state => state.like)
+    console.log(like)
 
 
     return (
@@ -47,7 +48,7 @@ export default function Header() {
                         Rick and Morty SPA
                     </Typography>
                     <Typography>
-                        Favorites: {like}
+                        Favorites: {like.length}
                     </Typography>
                     <Button   color="inherit"  component={Link} to={'/about'}>About</Button>
                 </Toolbar>

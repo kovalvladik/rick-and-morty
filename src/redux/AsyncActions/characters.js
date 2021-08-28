@@ -1,4 +1,4 @@
-import {getNewCharacter, getNewInfo} from "../Reducers/reducer";
+import {getNewCharacter, getNewInfo, loadingFalse, loadingTrue} from "../Reducers/reducer";
 import {instance} from "../../axois";
 
 export const axiosCharacters = (currentPage,params) => {
@@ -10,8 +10,10 @@ export const axiosCharacters = (currentPage,params) => {
 
             }
         }).then(data =>{
+            dispatch(loadingTrue())
             dispatch(getNewCharacter(data.data.results))
             dispatch(getNewInfo(data.data.info))
+            dispatch(loadingFalse())
         })
     }
 }

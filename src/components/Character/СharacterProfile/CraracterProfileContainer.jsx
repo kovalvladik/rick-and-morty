@@ -9,6 +9,8 @@ export default function CharacterProfileContainer() {
     const dispatch = useDispatch()
 
     const character = useSelector(state => state.singleCharacter)
+    const loading = useSelector(state => state.loading)
+
 
     const {id} = useParams()
 

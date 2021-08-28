@@ -1,25 +1,56 @@
 import React from "react";
-import {Grid, List} from "@material-ui/core";
+import {Card, Grid, List,Typography,CardContent} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import {useSelector} from "react-redux";
 import Preloader from "../../Preloader";
+import CardMedia from "@material-ui/core/CardMedia";
+import {makeStyles} from "@material-ui/core/styles";
+
+
+
+const useStyles = makeStyles({
+    root: {
+        flexGrow: 1,
+        padding: '3rem'
+        // marginLeft:'3px'
+    },
+    media:{
+        margitTop:'2rem',
+    },
+
+})
 
 function CharacterProfile() {
+    const classes = useStyles()
     const singleCharacter = useSelector(state => state.singleCharacter)
+    const loading = useSelector(state => state.loading)
     const {name, status, species, episode} = singleCharacter
-    return<List>
-            {name}
-            {status}
-            {species}
-                {episode !== undefined?
-                    <Grid container spacing={3}>
-                        {episode.map((episode) => (
-                            <Button item xs={12} sm={6} md={6} lg={4} key={episode.id}{...episode}>
-                                {episode.split('https://rickandmortyapi.com/api/episode/')}</Button>
-                        ))}
-                        {/* eslint-disable-next-line react/jsx-no-undef */}
-            </Grid>: <Preloader/>}
-        </List>
+    return<Card className={classes.root}>
+        <CardContent>
+            <Typography>
+            Name: {name}
+            </Typography>
+            <Typography>
+            Status: {status}
+            </Typography>
+            <Typography>
+            Species: {species}
+            </Typography>
+
+        </CardContent>
+        <CardMedia className={classes.media}>
+            {episode !== undefined?
+                <Grid container spacing={3}>
+                    {episode.map((episode) => (
+                        <Button item xs={12} sm={6} md={6} lg={4} key={episode.id}{...episode}>
+                            {episode.split('https://rickandmortyapi.com/api/episode/')}</Button>
+                    ))}
+                    {/* eslint-disable-next-line react/jsx-no-undef */}
+                </Grid>: <Preloader/>}
+        </CardMedia>
+
+
+        </Card>
 }
 
 export {CharacterProfile}
