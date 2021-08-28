@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function CircularIndeterminate() {
+export default function Preloader() {
     const classes = useStyles();
 
     return (

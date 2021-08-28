@@ -2,7 +2,7 @@ import React from "react";
 import {Grid, List} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import {useSelector} from "react-redux";
-import CircularIndeterminate from "../../Preloader";
+import Preloader from "../../Preloader";
 
 function CharacterProfile() {
     const singleCharacter = useSelector(state => state.singleCharacter)
