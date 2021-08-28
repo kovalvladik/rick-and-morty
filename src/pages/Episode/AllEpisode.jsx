@@ -1,7 +1,7 @@
 import {makeStyles} from "@material-ui/core";
-import {Search} from "../../components/Search/Search";
 import EpisodeListContainer from "../../components/Episode/EpiosdeList/EpisodeListContainer";
 import PaginationLinkContainer from "../../components/PaginationLilk/PaginationLinkContainer";
+import SearchContainer from "../../components/Search/SearchContainer";
 
 const useStyles = makeStyles({
     root: {
@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 function AllEpisode() {
     const classes = useStyles()
     return <main className={classes.root}>
-        <Search/>
+        <SearchContainer/>
         <EpisodeListContainer/>
         <PaginationLinkContainer/>
     </main>

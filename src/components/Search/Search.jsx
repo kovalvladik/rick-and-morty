@@ -2,11 +2,7 @@ import React from 'react';
 import InputBase from '@material-ui/core/InputBase';
 import {alpha, makeStyles} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
-import {Button} from "@material-ui/core";
-import {useDispatch, useSelector} from "react-redux";
-import {updateParams} from "../../redux/Reducers/reducer";
-import {useHistory} from "react-router-dom";
-import {useLocation} from "react-router";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -55,24 +51,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Search() {
+function Search({params, handleSearch}) {
     const classes = useStyles();
 
-    const {push} = useHistory()
-
-    const {pathname, search} = useLocation()
-
-    const params = useSelector(state => state.params)
-
-    const dispatch = useDispatch()
-
-    const handleSearch = (e) => {
-        dispatch(updateParams(e))
-        push({
-            pathname,
-            search: `?name=${params}`
-        })
-    }
 
     return (
         <div className={classes.search}>
