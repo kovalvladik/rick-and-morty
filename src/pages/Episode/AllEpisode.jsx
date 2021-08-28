@@ -1,7 +1,7 @@
 import {makeStyles} from "@material-ui/core";
-import PaginationLink from "../../components/PaginationLilk/PaginationLink";
 import {Search} from "../../components/Search/Search";
 import EpisodeListContainer from "../../components/Episode/EpiosdeList/EpisodeListContainer";
+import PaginationLinkContainer from "../../components/PaginationLilk/PaginationLinkContainer";
 
 const useStyles = makeStyles({
     root: {
@@ -15,7 +15,7 @@ function AllEpisode() {
     return <main className={classes.root}>
         <Search/>
         <EpisodeListContainer/>
-        <PaginationLink/>
+        <PaginationLinkContainer/>
     </main>
 
 }
