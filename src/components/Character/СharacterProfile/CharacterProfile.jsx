@@ -15,7 +15,10 @@ const useStyles = makeStyles({
         // marginLeft:'3px'
     },
     media:{
-        margitTop:'2rem',
+        margitTop:'4rem',
+    },
+    content:{
+        marginTop:'2rem'
     },
 
 })
@@ -39,8 +42,11 @@ function CharacterProfile() {
 
         </CardContent>
         <CardMedia className={classes.media}>
+            <Typography>
+                Episodes numbers with this character:
+            </Typography>
             {episode !== undefined?
-                <Grid container spacing={3}>
+                <Grid container spacing={3} className={classes.content}>
                     {episode.map((episode) => (
                         <Button item xs={12} sm={6} md={6} lg={4} key={episode.id}{...episode}>
                             {episode.split('https://rickandmortyapi.com/api/episode/')}</Button>

@@ -9,7 +9,7 @@ const defaultState = {
     currentPage: +1,
     params: '',
     name: '',
-    like: 0,
+    like: [{id:1,name:'',}],
     loading: false,
 
 }
@@ -44,13 +44,13 @@ const reducer = (state = defaultState, action) => {
         case REMOVE_LIKE:
             return {
                 ...state,
-                like: state.like - 1
+                like: state.like.filter(action.payload.id === state.like.id)
             }
 
         case ADD_LIKE:
             return {
                 ...state,
-                like: state.like + 1
+                like: state.like + action.payload
             }
         case GET_SINGLE_EPISODE:
             return {
@@ -123,7 +123,7 @@ export const getNewInfo = (payload) => ({type: GET_INFO, payload})
 export const updateCurrentPage = (payload) => ({type: SET_CURRENT_PAGE, payload})
 export const updateParams = (payload) => ({type: SET_PARAMS, payload})
 export const updateName = (payload) => ({type: SET_NAME, payload})
-export const addLike = () => ({type: ADD_LIKE})
-export const removeLike = () => ({type: REMOVE_LIKE})
+export const addLike = (payload) => ({type: ADD_LIKE, payload})
+export const removeLike = (payload) => ({type: REMOVE_LIKE, payload})
 export const loadingTrue = () => ({type: LOADING_TRUE})
 export const loadingFalse = () => ({type: LOADING_FALSE})
