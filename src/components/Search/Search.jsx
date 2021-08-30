@@ -1,6 +1,6 @@
 import React from 'react';
 import InputBase from '@material-ui/core/InputBase';
-import {alpha, makeStyles} from '@material-ui/core/styles';
+import {alpha, makeStyles,} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 
 
@@ -51,9 +51,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Search({params, handleSearch}) {
+function Search({params, handleSearch,}) {
     const classes = useStyles();
-
 
     return (
         <div className={classes.search}>
@@ -70,7 +69,7 @@ function Search({params, handleSearch}) {
                 onChange={(e) => handleSearch(e.target.value)}
                 value={params}
             />
-            {/*<Button  onClick={handleSearch}> press</Button>*/}
+            {/*<button  onClick={ e => handleSearch2(e.target.value)}> press</button>*/}
         </div>
     )
 }

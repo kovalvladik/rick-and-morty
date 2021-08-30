@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {useHistory} from "react-router-dom";
 import {useLocation} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
@@ -19,13 +19,13 @@ const SearchContainer = () => {
         dispatch(updateParams(e))
         push({
             pathname,
-            search: `?name=${params}`
+            search: `?name=${params === e ? params : e}`
         })
     }
 
     return (
         <div>
-            <Search handleSearch={handleSearch} params={params}/>
+            <Search handleSearch={handleSearch} params={params} />
         </div>
     );
 };
