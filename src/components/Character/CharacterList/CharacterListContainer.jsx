@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {axiosCharacters} from "../../../redux/AsyncActions/characters";
 import {CharacterList} from "./CharacterList";
+import {getNewCharacter, getNewInfo} from "../../../redux/Reducers/reducer";
 
 function CharacterListContainer() {
 
@@ -12,7 +13,7 @@ function CharacterListContainer() {
     const params = useSelector(state => state.params)
 
     useEffect(() => {
-        dispatch(axiosCharacters(currentPage, params))
+        dispatch({type:'LOAD_CHARACTER', args:{currentPage,params} })
     }, [currentPage, params])
 
 

@@ -25,7 +25,7 @@ const PaginationLinkContainer = () => {
     };
 
     const newCurrentPage = (pageNumber) => {
-        dispatch(updateCurrentPage(pageNumber))
+        dispatch({type:'NEW_PAGE',args:pageNumber})
         push({
             pathname,
             search: `?page=${pageNumber}`

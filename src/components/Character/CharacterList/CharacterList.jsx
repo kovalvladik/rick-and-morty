@@ -29,6 +29,8 @@ function CharacterList() {
 
     const character = useSelector(state => state.character)
 
+
+
     return (character.length !== 0 ?
         <Grid container spacing={3} className={classes.root}>
             {character.map((character) =>

@@ -11,7 +11,7 @@ export const axiosLocation = (currentPage, params) => {
             }
         }).then(data => {
             dispatch(getNewLocation(data.data.results))
-            dispatch(getNewInfo(data.data.info))
+            // dispatch(getNewInfo(data.data.info))
         })
     }
 }

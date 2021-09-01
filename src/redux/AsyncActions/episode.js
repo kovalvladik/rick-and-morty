@@ -11,7 +11,7 @@ export const axiosEpisode = (currentPage, params) => {
             }
         }).then(data => {
             dispatch(getNewEpisode(data.data.results))
-            dispatch(getNewInfo(data.data.info))
+            // dispatch(getNewInfo(data.data.info))
         })
     }
 }

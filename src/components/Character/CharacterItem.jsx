@@ -11,6 +11,7 @@ import { red } from '@material-ui/core/colors';
 import {Button} from "@material-ui/core";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -45,6 +46,7 @@ function CharacterItem (props) {
 
     const classes = useStyles();
 
+    const dispatch = useDispatch()
 
 
 
@@ -64,6 +66,7 @@ function CharacterItem (props) {
                         {type}
                     </Typography>
                 </CardContent>
+                <button onClick={() => dispatch({type:'LOAD_CHARACTER' })}> click me</button>
                 <Button component={Link} to={`/character/${id}`}>
                     <AccountCircleIcon/>
                 </Button>
