@@ -16,7 +16,7 @@ import {store} from "./redux/contex";
 function App() {
     return (
         <Provider store={store}>
-            <Router basename='/rick-and-morty'>
+            <Router  basename='/rick-and-morty'>
                 <Header/>
                 <main>
                     <Switch>

@@ -9,40 +9,26 @@ const defaultState = {
     currentPage: +1,
     params: '',
     name: '',
-    like: [{id:1,name:'',}],
+    like: [{id: 1, name: '',}],
     loading: false,
 
 }
-export  const actionName = {
-    GET_CHARACTER :"GET_CHARACTER",
-   GET_SINGLE_CHARACTER : "GET_SINGLE_CHARACTER",
-   GET_EPISODE : "GET_EPISODE",
-   GET_SINGLE_EPISODE : "GET_SINGLE_EPISODE",
- GET_LOCATION : "GET_LOCATION",
-   GET_SINGLE_LOCATION : "GET_SINGLE_LOCATION",
-   GET_INFO : "GET_INFO",
-    SET_CURRENT_PAGE : "SET_CURRENT_PAGE",
-   SET_PARAMS : "SET_PARAMS",
-  SET_NAME : "SET_NAME",
-     ADD_LIKE : "ADD_LIKE",
-    REMOVE_LIKE :"REMOVE_LIKE",
-     LOADING_TRUE : 'LOADING_TRUE',
-     LOADING_FALSE : 'LOADING_FALSE',
+export const actionName = {
+    GET_CHARACTER: "GET_CHARACTER",
+    GET_SINGLE_CHARACTER: "GET_SINGLE_CHARACTER",
+    GET_EPISODE: "GET_EPISODE",
+    GET_SINGLE_EPISODE: "GET_SINGLE_EPISODE",
+    GET_LOCATION: "GET_LOCATION",
+    GET_SINGLE_LOCATION: "GET_SINGLE_LOCATION",
+    GET_INFO: "GET_INFO",
+    SET_CURRENT_PAGE: "SET_CURRENT_PAGE",
+    SET_PARAMS: "SET_PARAMS",
+    SET_NAME: "SET_NAME",
+    ADD_LIKE: "ADD_LIKE",
+    REMOVE_LIKE: "REMOVE_LIKE",
+    LOADING_TRUE: 'LOADING_TRUE',
+    LOADING_FALSE: 'LOADING_FALSE',
 }
-// const GET_CHARACTER = "GET_CHARACTER"
-// export  const GET_SINGLE_CHARACTER = "GET_SINGLE_CHARACTER"
-// export const GET_EPISODE = "GET_EPISODE"
-// export const GET_SINGLE_EPISODE = "GET_SINGLE_EPISODE"
-// export const GET_LOCATION = "GET_LOCATION"
-// export const GET_SINGLE_LOCATION = "GET_SINGLE_LOCATION"
-// const GET_INFO = "GET_INFO"
-// const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
-// export const SET_PARAMS = "SET_PARAMS"
-// export const SET_NAME = "SET_NAME"
-// export const ADD_LIKE = "ADD_LIKE"
-// export const REMOVE_LIKE = "REMOVE_LIKE"
-// export const LOADING_TRUE = 'LOADING_TRUE'
-// export const LOADING_FALSE = 'LOADING_FALSE'
 
 const reducer = (state = defaultState, action) => {
     switch (action.type) {
@@ -92,7 +78,7 @@ const reducer = (state = defaultState, action) => {
                 ...state,
                 episode: action.payload
             }
-        case actionName.GET_CHARACTER:{
+        case actionName.GET_CHARACTER: {
             return {
                 ...state,
                 character: action.payload
