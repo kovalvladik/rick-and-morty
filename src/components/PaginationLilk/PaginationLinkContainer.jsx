@@ -3,7 +3,6 @@ import PaginationLink from "./PaginationLink";
 import {useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router";
-import {updateCurrentPage} from "../../redux/Reducers/reducer";
 
 const PaginationLinkContainer = () => {
     const {push} = useHistory()

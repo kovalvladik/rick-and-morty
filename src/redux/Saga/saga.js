@@ -1,46 +1,22 @@
 import {takeEvery,call,put,fork} from 'redux-saga/effects'
-import {axiosCharacters} from "../AsyncActions/characters";
-import {instance} from "../../axois";
-import {reducer} from "../Reducers/reducer";
-
- async function aa(currentPage, params){
-
-  const results =await instance.get(`/character`,{
-      params: {
-          page: currentPage,
-          name: params,
-
-      }})
-     console.log(results.data.results)
-     return results.data
-}
+import axiosCharacters from "../AsyncActions/characters";
 
 
-export function* workerSaga(action){
-    console.log(action)
-    const dtate = yield call(aa, action.args)
-     console.log('saga 4')
-     console.log(dtate)
-    yield put ({type:'GET_CHARACTER', payload: dtate.results })
-    yield put ({type:'GET_INFO', payload: dtate.info })
-    console.log('saga 4')
+export function* workerSagaGetAllCharacters(action){
+    const date = yield call(axiosCharacters, action.args)
+    yield put ({type:'GET_CHARACTER', payload: date.results })
+    yield put ({type:'GET_INFO', payload: date.info })
 
-
-}export function* workerSaga2(action){
-
+}export function* workerSagaSetCurrentPage(action){
     yield put ({type:'SET_CURRENT_PAGE', payload: action.args })
-
-
-
 }
 
 export function* watcherSaga(){
-        yield takeEvery('LOAD_CHARACTER',workerSaga)
-        yield takeEvery('NEW_PAGE',workerSaga2)
+        yield takeEvery('LOAD_CHARACTER',workerSagaGetAllCharacters)
+        yield takeEvery('NEW_PAGE',workerSagaSetCurrentPage)
 }
 
 export default function* rootSaga(){
     console.log('saga 2')
-
     yield fork(watcherSaga)
 }

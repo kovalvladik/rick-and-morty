@@ -1,17 +1,15 @@
-import {getNewInfo, getNewLocation} from "../Reducers/reducer";
 import {instance} from "../../axois";
 
-export const axiosLocation = (currentPage, params) => {
-    return function (dispatch) {
-        instance.get(`/location`, {
-            params: {
-                page: currentPage,
-                name: params,
+async function axiosLocation(args){
+    console.log(args.params)
 
-            }
-        }).then(data => {
-            dispatch(getNewLocation(data.data.results))
-            // dispatch(getNewInfo(data.data.info))
-        })
-    }
+    const results =await instance.get(`/location`,{
+        params: {
+            page: args.currentPage,
+            name: args.params,
+
+        }})
+    console.log(results.data.results)
+    return results.data
 }
+export default axiosLocation
