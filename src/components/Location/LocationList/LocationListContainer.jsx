@@ -1,6 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {axiosLocation} from "../../../redux/AsyncActions/location";
 import {LocationList} from "./LocationList";
 
 export default function LocationListContainer() {
@@ -12,7 +11,7 @@ export default function LocationListContainer() {
     const params = useSelector(state => state.params)
 
     useEffect(() => {
-        dispatch(axiosLocation(currentPage, params))
+        dispatch({type:'LOAD_LOCATION',args:{currentPage,params} })
     }, [currentPage, params])
 
     return <>

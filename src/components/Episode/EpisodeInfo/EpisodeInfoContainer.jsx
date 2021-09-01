@@ -2,7 +2,6 @@ import {EpisodeInfo} from "./EpisodeInfo";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
-import {axiosSingleEpisode} from "../../../redux/AsyncActions/singleEpisode";
 
 export default function EpisodeInfoContainer() {
 
@@ -13,7 +12,7 @@ export default function EpisodeInfoContainer() {
     const {id} = useParams()
 
     useEffect(() => {
-        dispatch(axiosSingleEpisode(id))
+        dispatch({type:'LOAD_SINGLE_EPISODE', args:id})
     }, [])
 
     return <>

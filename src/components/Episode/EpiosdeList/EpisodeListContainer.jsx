@@ -15,7 +15,7 @@ export default function EpisodeListContainer() {
 
 
     useEffect(() => {
-        dispatch(axiosEpisode(currentPage, params))
+        dispatch({type:'LOAD_EPISODE', args:{currentPage,params}})
     }, [currentPage, params])
     return <>
         <EpisodeList/>

@@ -11,10 +11,10 @@ function LocationInfo({handleClick, type, name, dimension, residents}) {
                     <Typography> Type: {type}</Typography>
                     <Typography>Dimension: {dimension}</Typography>
                     <Typography>Residents: {residents}</Typography>
-                    <button onClick={() => {
-                        handleClick()
-                    }}>like
-                    </button>
+                    {/*<button onClick={() => {*/}
+                    {/*    handleClick()*/}
+                    {/*}}>like*/}
+                    {/*</button>*/}
 
                 </Grid>
             </Grid>

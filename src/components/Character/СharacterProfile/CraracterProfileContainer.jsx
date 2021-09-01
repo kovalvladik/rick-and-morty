@@ -1,7 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
-import {axiosSingleCharacter} from "../../../redux/AsyncActions/singleCharacter";
 import {CharacterProfile} from "./CharacterProfile";
 
 export default function CharacterProfileContainer() {
@@ -15,11 +14,10 @@ export default function CharacterProfileContainer() {
     const {id} = useParams()
 
     useEffect(() => {
-        dispatch(axiosSingleCharacter(id))
+        dispatch({type:'LOAD_SINGLE_CHARACTER',args:id})
         console.log('111')
     }, [])
 
-    dispatch(axiosSingleCharacter(id))
     return <>
         <CharacterProfile {...character}/>
     </>

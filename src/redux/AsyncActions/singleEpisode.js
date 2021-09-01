@@ -1,10 +1,7 @@
-import {getSingleEpisode} from "../Reducers/reducer";
 import {instance} from "../../axois";
 
-export const axiosSingleEpisode = (id) => {
-    return function (dispatch){
-        instance.get(`/episode/${id}`).then(data =>{
-            dispatch(getSingleEpisode(data.data))
-        })
-    }
+async function axiosSingleEpisode(id){
+    const results =await instance.get(`/episode/${id}`)
+    return results.data
 }
+export default axiosSingleEpisode
